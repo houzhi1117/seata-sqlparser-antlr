@@ -1,6 +1,7 @@
 package com.alibaba.seata.sqlparser.antlr;
 
-import com.alibaba.seata.sqlparser.antlr.mysql.listener.StatementSqlListener;
+import com.alibaba.seata.sqlparser.antlr.mysql.listener.MySqlQueryContext;
+import com.alibaba.seata.sqlparser.antlr.mysql.listener.QuerySpecificationSqlListener;
 import com.alibaba.seata.sqlparser.antlr.mysql.parser.MySqlLexer;
 import com.alibaba.seata.sqlparser.antlr.mysql.parser.MySqlParser;
 import com.alibaba.seata.sqlparser.antlr.mysql.stream.ANTLRNoCaseStringStream;
@@ -19,13 +20,14 @@ public class MySQLSelectForUpdateRecognizerTest {
 
     /**
      * Select for update recognizer test 0.
+     * description: Test resolution table name
      */
     @Test
     public void selectForUpdateRecognizerTest_0() {
 
         //String sql = "SELECT name FROM t1 WHERE id = 'id1' FOR UPDATE";
 
-        String sql = "SELECT NAME FROM T1 WHERE ID = 'id1' FOR UPDATE";
+        String sql = "SELECT name FROM t1 WHERE id = 'id1' FOR UPDATE";
 
         MySqlLexer lexer = new MySqlLexer(new ANTLRNoCaseStringStream(sql));
 
@@ -33,15 +35,72 @@ public class MySQLSelectForUpdateRecognizerTest {
 
         MySqlParser parser = new MySqlParser(tokenStream);
 
-        MySqlParser.TableNameContext ruleContext = parser.tableName();
+        MySqlParser.RootContext rootContext = parser.root();
 
-        SqlContext listenerSqlContext = new SqlContext();
+        MySqlQueryContext sqlQueryContext = new MySqlQueryContext();
+
         ParseTreeWalker walker = new ParseTreeWalker();
+        walker.walk(new QuerySpecificationSqlListener(sqlQueryContext), rootContext);
 
-        walker.walk(new StatementSqlListener(listenerSqlContext), ruleContext);
+        Assertions.assertEquals("t1", sqlQueryContext.queryTableName);
+    }
 
-        listenerSqlContext.getSourceTables().forEach(value -> System.out.println(value.getTable()));
+    /**
+     * Select for update recognizer test 1.
+     * description: Test parsing table name attribute
+     */
+    @Test
+    public void selectForUpdateRecognizerTest_1() {
 
-        Assertions.assertEquals("T1", listenerSqlContext.getSourceTables().get(0).getTable());
+        //String sql = "SELECT name FROM t1 WHERE id = 'id1' FOR UPDATE";
+
+        String sql = "SELECT name,age,phone FROM t1 WHERE id = 'id1' FOR UPDATE";
+
+        MySqlLexer lexer = new MySqlLexer(new ANTLRNoCaseStringStream(sql));
+
+        CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+        MySqlParser parser = new MySqlParser(tokenStream);
+
+        MySqlParser.RootContext rootContext = parser.root();
+
+        MySqlQueryContext sqlQueryContext = new MySqlQueryContext();
+
+        ParseTreeWalker walker = new ParseTreeWalker();
+        walker.walk(new QuerySpecificationSqlListener(sqlQueryContext), rootContext);
+
+        Assertions.assertEquals("t1", sqlQueryContext.queryTableName);
+        Assertions.assertEquals("phone", sqlQueryContext.columnNames.get(2));
+    }
+
+
+    /**
+     * Select for update recognizer test 1.
+     * description: Test parsing table query conditions
+     */
+    @Test
+    public void selectForUpdateRecognizerTest_2() {
+
+        //String sql = "SELECT name FROM t1 WHERE id = 'id1' FOR UPDATE";
+
+        String sql = "SELECT name,age,phone FROM t1 WHERE id = 'id1' FOR UPDATE";
+
+        MySqlLexer lexer = new MySqlLexer(new ANTLRNoCaseStringStream(sql));
+
+        CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+        MySqlParser parser = new MySqlParser(tokenStream);
+
+        MySqlParser.RootContext rootContext = parser.root();
+
+        MySqlQueryContext sqlQueryContext = new MySqlQueryContext();
+
+        ParseTreeWalker walker = new ParseTreeWalker();
+        walker.walk(new QuerySpecificationSqlListener(sqlQueryContext), rootContext);
+
+        Assertions.assertEquals("t1", sqlQueryContext.queryTableName);
+        Assertions.assertEquals("phone", sqlQueryContext.columnNames.get(2));
+
+        Assertions.assertEquals("id = 'id1'", sqlQueryContext.whereCondition);
     }
 }

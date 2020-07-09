@@ -1,6 +1,5 @@
 package com.alibaba.seata.sqlparser.antlr.mysql.listener;
 
-import com.alibaba.seata.sqlparser.antlr.SqlContext;
 import com.alibaba.seata.sqlparser.antlr.mysql.parser.MySqlParser;
 import com.alibaba.seata.sqlparser.antlr.mysql.parser.MySqlParserBaseListener;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -8,16 +7,16 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class StatementSqlListener extends MySqlParserBaseListener {
 
-    private SqlContext sqlContext;
+    private MySqlQueryContext sqlQueryContext;
 
-    public StatementSqlListener(SqlContext sqlContext) {
-        this.sqlContext = sqlContext;
+    public StatementSqlListener(MySqlQueryContext sqlQueryContext) {
+        this.sqlQueryContext = sqlQueryContext;
     }
 
     @Override
-    public void enterTableName(MySqlParser.TableNameContext ctx) {
+    public void enterRoot(MySqlParser.RootContext ctx) {
         ParseTreeWalker queryWalker = new ParseTreeWalker();
-        queryWalker.walk(new QuerySpecificationSqlListener(sqlContext), ctx);
-        super.enterTableName(ctx);
+        queryWalker.walk(new QuerySpecificationSqlListener(sqlQueryContext), ctx);
+        super.enterRoot(ctx);
     }
 }
