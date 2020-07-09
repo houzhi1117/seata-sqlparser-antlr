@@ -37,4 +37,16 @@ public class QuerySpecificationSqlListener extends MySqlParserBaseListener {
         super.enterSelectElements(ctx);
     }
 
+    @Override
+    public void enterQuerySpecification(MySqlParser.QuerySpecificationContext
+                                                ctx) {
+
+        MySqlParser.FromClauseContext fromClauseContext = ctx.fromClause();
+
+        MySqlParser.ExpressionContext whereExpr = fromClauseContext.whereExpr;
+
+        sqlQueryContext.addWhereCondition(whereExpr.getText());
+        super.enterQuerySpecification(ctx);
+    }
+
 }

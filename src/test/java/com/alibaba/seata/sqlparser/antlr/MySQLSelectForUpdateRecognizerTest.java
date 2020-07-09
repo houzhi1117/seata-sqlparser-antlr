@@ -100,7 +100,6 @@ public class MySQLSelectForUpdateRecognizerTest {
 
         Assertions.assertEquals("t1", sqlQueryContext.queryTableName);
         Assertions.assertEquals("phone", sqlQueryContext.columnNames.get(2));
-
-        Assertions.assertEquals("id = 'id1'", sqlQueryContext.whereCondition);
+        Assertions.assertEquals("id='id1'", sqlQueryContext.whereCondition);
     }
 }
