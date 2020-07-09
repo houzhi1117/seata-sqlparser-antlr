@@ -15,9 +15,9 @@ public class StatementSqlListener extends MySqlParserBaseListener {
     }
 
     @Override
-    public void enterTableIndexes(MySqlParser.TableIndexesContext ctx) {
+    public void enterTableName(MySqlParser.TableNameContext ctx) {
         ParseTreeWalker queryWalker = new ParseTreeWalker();
         queryWalker.walk(new QuerySpecificationSqlListener(sqlContext), ctx);
-        super.enterTableIndexes(ctx);
+        super.enterTableName(ctx);
     }
 }

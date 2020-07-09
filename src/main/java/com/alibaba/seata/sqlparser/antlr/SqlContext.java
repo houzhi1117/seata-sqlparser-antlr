@@ -18,7 +18,7 @@ public class SqlContext {
         sourceTables.add(new Table(database, table));
     }
 
-    public void addSource2(String table) {
+    public void addSource(String table) {
 
         Table table1 = new Table();
 

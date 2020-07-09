@@ -13,13 +13,12 @@ public class QuerySpecificationSqlListener extends MySqlParserBaseListener {
         this.sqlContext = sqlContext;
     }
 
-//    @Override
-//    public void enterTableIndexes(MySqlParser. ctx) {
-//
-//
-//        //String text = ctx.tableName().getText();
-//        sqlContext.addSource2(text);
-//        super.enterTableIndexes(ctx);
-//    }
+    @Override
+    public void enterTableName(MySqlParser.TableNameContext ctx) {
+
+        String text = ctx.getText();
+        sqlContext.addSource(text);
+        super.enterTableName(ctx);
+    }
 
 }
