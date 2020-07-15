@@ -39,13 +39,8 @@ public class QuerySpecificationSqlVisitor extends MySqlParserBaseVisitor<MySqlCo
 
         List<MySqlParser.SelectElementContext> selectElementContexts = ctx.selectElement();
 
-        List<MySqlContext.SQL> queryColumnNames = mySqlContext.getQueryColumnNames();
-
-        MySqlContext.SQL sql = null;
         for (MySqlParser.SelectElementContext selectElementContext : selectElementContexts) {
-            sql = new MySqlContext.SQL();
-            sql.setColumnName(selectElementContext.getText());
-            queryColumnNames.add(sql);
+            mySqlContext.addQueryColumnNames(selectElementContext.getText());
         }
         return this.mySqlContext;
     }

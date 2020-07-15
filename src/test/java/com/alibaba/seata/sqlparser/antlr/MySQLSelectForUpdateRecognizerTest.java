@@ -62,7 +62,8 @@ public class MySQLSelectForUpdateRecognizerTest {
         visitor.visit(rootContext);
 
         Assertions.assertEquals("t1", mySqlContext.getTableName());
-        Assertions.assertEquals("phone", mySqlContext.getQueryColumnNames().get(2).getColumnName());
+        String columnName = mySqlContext.getQueryColumnNames().get(2).getColumnName();
+        Assertions.assertEquals("phone", columnName);
     }
 
 

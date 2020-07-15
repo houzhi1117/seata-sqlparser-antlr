@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,7 +20,17 @@ public class MySqlContext {
     public String tableName;
 
     @Getter
+    @Setter
+    public Integer insertRows;
+
+    @Getter
     public List<SQL> queryColumnNames = new ArrayList<>();
+
+    @Getter
+    public List<SQL> insertColumnNames = new ArrayList<>();
+
+    @Getter
+    public List<List<String>> insertForValColumnNames = new ArrayList<>();
 
     @Getter
     public List<SQL> queryForInColumnNames = new ArrayList<>();
@@ -27,10 +38,20 @@ public class MySqlContext {
     @Getter
     public List<SQL> queryForInValColumnNames = new ArrayList<>();
 
-    public void addColumnNames(String columnName) {
+    public void addForInsertColumnName(String columnName) {
+        SQL sql = new SQL();
+        sql.setInsertColumnName(columnName);
+        insertColumnNames.add(sql);
+    }
+
+    public void addForInsertValColumnName(List<String> columnName) {
+        insertForValColumnNames.add(columnName);
+    }
+
+    public void addQueryColumnNames(String columnName) {
         SQL sql = new SQL();
         sql.setColumnName(columnName);
-        queryForInColumnNames.add(sql);
+        queryColumnNames.add(sql);
     }
 
     public void addForInColumnNames(String queryForInValColumnName) {
@@ -47,10 +68,11 @@ public class MySqlContext {
 
     @Data
     public static class SQL {
-        public String columnName;
-        public String tableName;
-        public String whereCondition;
-        public String queryForInValColumnName;
-        public String queryForInColumnName;
+        private String columnName;
+        private String tableName;
+        private String whereCondition;
+        private String queryForInValColumnName;
+        private String queryForInColumnName;
+        private String insertColumnName;
     }
 }

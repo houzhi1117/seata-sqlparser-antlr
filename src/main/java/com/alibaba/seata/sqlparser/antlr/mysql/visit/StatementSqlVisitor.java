@@ -14,6 +14,12 @@ public class StatementSqlVisitor extends MySqlParserBaseVisitor<MySqlContext> {
     }
 
     @Override
+    public MySqlContext visitInsertStatement(MySqlParser.InsertStatementContext ctx) {
+        return new InsertSpecificationSqlVisitor(this.mySqlContext).visitInsertStatement(ctx);
+    }
+
+
+    @Override
     public MySqlContext visitFullColumnNameExpressionAtom(MySqlParser.FullColumnNameExpressionAtomContext ctx) {
         return new QuerySpecificationSqlVisitor(this.mySqlContext).visitFullColumnNameExpressionAtom(ctx);
     }
