@@ -1,5 +1,4 @@
 // Generated from F:/seata/git-seata/seata-sqlparser-antlr/src/main/antlr4/com.alibaba.seata.mysql.sqlparser/mysql\MySqlLexer.g4 by ANTLR 4.8
-package com.alibaba.seata.sqlparser.antlr.mysql.parser;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

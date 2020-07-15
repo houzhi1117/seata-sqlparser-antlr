@@ -1,4 +1,5 @@
-package com.alibaba.seata.sqlparser.antlr.mysql.parser;// Generated from F:/seata/seata-sqlparser-antlr/src/main/antlr4/com.alibaba.seata.mysql.sqlparser/mysql\MySqlParser.g4 by ANTLR 4.8
+// Generated from F:/seata/git-seata/seata-sqlparser-antlr/src/main/antlr4/com.alibaba.seata.mysql.sqlparser/mysql\MySqlParser.g4 by ANTLR 4.8
+package com.alibaba.seata.sqlparser.antlr.mysql.parser;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
