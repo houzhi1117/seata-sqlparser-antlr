@@ -148,4 +148,33 @@ public class MySQLSelectForUpdateRecognizerTest {
         Assertions.assertEquals("id", mySqlContext.getQueryForInColumnNames().get(0).getQueryForInColumnName());
         Assertions.assertEquals("101", mySqlContext.getQueryForInValColumnNames().get(1).getQueryForInValColumnName());
     }
+
+
+    /**
+     * Select for update recognizer test 1.
+     * description: Test parsing table query conditions
+     */
+    @Test
+    public void selectForUpdateRecognizerTest_5() {
+
+        //String sql = "SELECT name1, name2 FROM t1 WHERE name = 1 and id between 2 and 3 or img = '11' FOR UPDATE";
+
+        String sql = "SELECT name1, name2 FROM t1 WHERE name = 1 and age =2 FOR UPDATE";
+
+        MySqlLexer lexer = new MySqlLexer(new ANTLRNoCaseStringStream(sql));
+
+        CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+        MySqlParser parser = new MySqlParser(tokenStream);
+
+        MySqlParser.RootContext rootContext = parser.root();
+
+        MySqlContext mySqlContext = new MySqlContext();
+
+        StatementSqlVisitor visitor = new StatementSqlVisitor(mySqlContext);
+        visitor.visit(rootContext);
+
+        Assertions.assertEquals("t1", mySqlContext.getTableName());
+        Assertions.assertEquals("name1", mySqlContext.getQueryColumnNames().get(0).getColumnName());
+    }
 }

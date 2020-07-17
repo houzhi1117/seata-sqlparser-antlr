@@ -6,7 +6,6 @@ import com.alibaba.seata.sqlparser.antlr.mysql.parser.MySqlParserBaseVisitor;
 
 import java.util.List;
 
-
 public class QuerySpecificationSqlVisitor extends MySqlParserBaseVisitor<MySqlContext> {
 
     private MySqlContext mySqlContext;
@@ -24,13 +23,21 @@ public class QuerySpecificationSqlVisitor extends MySqlParserBaseVisitor<MySqlCo
 
     @Override
     public MySqlContext visitConstantExpressionAtom(MySqlParser.ConstantExpressionAtomContext ctx) {
-        mySqlContext.addForInValColumnNames(ctx.getText());
+        mySqlContext.addForQueryValColumnNames(ctx.getText());
         return this.mySqlContext;
     }
 
     @Override
     public MySqlContext visitFullColumnNameExpressionAtom(MySqlParser.FullColumnNameExpressionAtomContext ctx) {
-        mySqlContext.addForInColumnNames(ctx.getText());
+        mySqlContext.addForQueryColumnNames(ctx.getText());
+        return this.mySqlContext;
+    }
+
+    @Override
+    public MySqlContext visitBetweenPredicate(MySqlParser.BetweenPredicateContext ctx) {
+
+        String text = ctx.getText();
+
         return this.mySqlContext;
     }
 
@@ -44,4 +51,23 @@ public class QuerySpecificationSqlVisitor extends MySqlParserBaseVisitor<MySqlCo
         }
         return this.mySqlContext;
     }
+
+    @Override
+    public MySqlContext visitLogicalExpression(MySqlParser.LogicalExpressionContext ctx) {
+
+        String text = ctx.getText();
+        System.out.println(text);
+
+        return this.mySqlContext;
+    }
+
+    @Override
+    public MySqlContext visitPredicateExpression(MySqlParser.PredicateExpressionContext ctx) {
+
+        System.out.println(ctx.getText());
+
+        return this.mySqlContext;
+    }
+
+
 }

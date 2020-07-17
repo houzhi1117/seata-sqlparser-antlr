@@ -54,13 +54,13 @@ public class MySqlContext {
         queryColumnNames.add(sql);
     }
 
-    public void addForInColumnNames(String queryForInValColumnName) {
+    public void addForQueryColumnNames(String queryForInValColumnName) {
         SQL sql = new SQL();
         sql.setQueryForInColumnName(queryForInValColumnName);
         queryForInColumnNames.add(sql);
     }
 
-    public void addForInValColumnNames(String queryForInValColumnName) {
+    public void addForQueryValColumnNames(String queryForInValColumnName) {
         SQL sql = new SQL();
         sql.setQueryForInValColumnName(queryForInValColumnName);
         queryForInValColumnNames.add(sql);

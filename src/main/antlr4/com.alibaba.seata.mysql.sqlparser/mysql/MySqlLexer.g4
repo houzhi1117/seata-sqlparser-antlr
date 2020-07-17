@@ -41,19 +41,19 @@ LINE_COMMENT:                        (
 // Keywords
 // Common Keywords
 
-ADD:                                 'ADD';
-ALL:                                 'ALL';
-ALTER:                               'ALTER';
-ALWAYS:                              'ALWAYS';
-ANALYZE:                             'ANALYZE';
-AND:                                 'AND';
-AS:                                  'AS';
-ASC:                                 'ASC';
-BEFORE:                              'BEFORE';
-BETWEEN:                             'BETWEEN';
-BOTH:                                'BOTH';
-BY:                                  'BY';
-CALL:                                'CALL';
+ADD:                                 ' ADD' ;
+ALL:                                 ' ALL ';
+ALTER:                               ' ALTER ';
+ALWAYS:                              ' ALWAYS ';
+ANALYZE:                             ' ANALYZE ';
+AND:                                 ' AND ';
+AS:                                  ' AS ';
+ASC:                                 ' ASC ';
+BEFORE:                              ' BEFORE ';
+BETWEEN:                             ' BETWEEN ';
+BOTH:                                ' BOTH ';
+BY:                                  ' BY ';
+CALL:                                ' CALL ';
 CASCADE:                             'CASCADE';
 CASE:                                'CASE';
 CAST:                                'CAST';

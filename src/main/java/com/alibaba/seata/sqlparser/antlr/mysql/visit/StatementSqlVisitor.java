@@ -18,7 +18,6 @@ public class StatementSqlVisitor extends MySqlParserBaseVisitor<MySqlContext> {
         return new InsertSpecificationSqlVisitor(this.mySqlContext).visitInsertStatement(ctx);
     }
 
-
     @Override
     public MySqlContext visitFullColumnNameExpressionAtom(MySqlParser.FullColumnNameExpressionAtomContext ctx) {
         return new QuerySpecificationSqlVisitor(this.mySqlContext).visitFullColumnNameExpressionAtom(ctx);
@@ -39,4 +38,18 @@ public class StatementSqlVisitor extends MySqlParserBaseVisitor<MySqlContext> {
         return new QuerySpecificationSqlVisitor(this.mySqlContext).visitSelectElements(ctx);
     }
 
+    @Override
+    public MySqlContext visitBetweenPredicate(MySqlParser.BetweenPredicateContext ctx) {
+        return new QuerySpecificationSqlVisitor(this.mySqlContext).visitBetweenPredicate(ctx);
+    }
+
+    @Override
+    public MySqlContext visitPredicateExpression(MySqlParser.PredicateExpressionContext ctx) {
+        return new QuerySpecificationSqlVisitor(this.mySqlContext).visitPredicateExpression(ctx);
+    }
+
+    @Override
+    public MySqlContext visitLogicalExpression(MySqlParser.LogicalExpressionContext ctx) {
+        return new QuerySpecificationSqlVisitor(this.mySqlContext).visitLogicalExpression(ctx);
+    }
 }
