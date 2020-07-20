@@ -11,7 +11,9 @@ import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class MySqlParser extends Parser {
-	static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
+    public static Object LogicalExpressionContext;
+
+    static { RuntimeMetaData.checkVersion("4.8", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
 	protected static final PredictionContextCache _sharedContextCache =
@@ -408,13 +410,13 @@ public class MySqlParser extends Parser {
 			"'ENCLOSED'", "'ESCAPED'", "'EXISTS'", "'EXIT'", "'EXPLAIN'", "'FALSE'", 
 			"'FETCH'", "'FOR'", "'FORCE'", "'FOREIGN'", "'FROM'", "'FULLTEXT'", "'GENERATED'", 
 			"'GET'", "'GRANT'", "'GROUP'", "'HAVING'", "'HIGH_PRIORITY'", "'IF'", 
-			"'IGNORE'", "'IN'", "'INDEX'", "'INFILE'", "'INNER'", "'INOUT'", "'INSERT'", 
+			"'IGNORE'", "' IN '", "'INDEX'", "'INFILE'", "'INNER'", "'INOUT'", "'INSERT'", 
 			"'INTERVAL'", "'INTO'", "'IS'", "'ITERATE'", "'JOIN'", "'KEY'", "'KEYS'", 
 			"'KILL'", "'LEADING'", "'LEAVE'", "'LEFT'", "'LIKE'", "'LIMIT'", "'LINEAR'", 
 			"'LINES'", "'LOAD'", "'LOCK'", "'LOOP'", "'LOW_PRIORITY'", "'MASTER_BIND'", 
 			"'MASTER_SSL_VERIFY_SERVER_CERT'", "'MATCH'", "'MAXVALUE'", "'MODIFIES'", 
 			"'NATURAL'", "'NOT'", "'NO_WRITE_TO_BINLOG'", "'NULL'", "'NUMBER'", "'ON'", 
-			"'OPTIMIZE'", "'OPTION'", "'OPTIONALLY'", "'OR'", "'ORDER'", "'OUT'", 
+			"'OPTIMIZE'", "'OPTION'", "'OPTIONALLY'", "' OR '", "'ORDER'", "'OUT'", 
 			"'OUTER'", "'OUTFILE'", "'PARTITION'", "'PRIMARY'", "'PROCEDURE'", "'PURGE'", 
 			"'RANGE'", "'READ'", "'READS'", "'REFERENCES'", "'REGEXP'", "'RELEASE'", 
 			"'RENAME'", "'REPEAT'", "'REPLACE'", "'REQUIRE'", "'RESIGNAL'", "'RESTRICT'", 

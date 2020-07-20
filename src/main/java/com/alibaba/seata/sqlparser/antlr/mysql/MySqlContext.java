@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -15,28 +14,57 @@ import java.util.List;
  */
 public class MySqlContext {
 
+    /**
+     * 表名
+     */
     @Getter
     @Setter
     public String tableName;
 
+    /**
+     * 插入条数
+     */
     @Getter
     @Setter
     public Integer insertRows;
 
+    /**
+     * where条件
+     */
+    @Getter
+    @Setter
+    private String whereCondition;
+
+    /**
+     * 查询列名集合
+     */
     @Getter
     public List<SQL> queryColumnNames = new ArrayList<>();
 
+    /**
+     * where 查询列名条件集合
+     */
+    @Getter
+    public List<SQL> queryWhereColumnNames = new ArrayList<>();
+
+    /**
+     * where 查询列名对应值集合
+     */
+    @Getter
+    public List<SQL> queryWhereValColumnNames = new ArrayList<>();
+
+    /**
+     * 查询列名集合
+     */
     @Getter
     public List<SQL> insertColumnNames = new ArrayList<>();
 
+    /**
+     * 插入列表对象值集合
+     */
     @Getter
     public List<List<String>> insertForValColumnNames = new ArrayList<>();
 
-    @Getter
-    public List<SQL> queryForInColumnNames = new ArrayList<>();
-
-    @Getter
-    public List<SQL> queryForInValColumnNames = new ArrayList<>();
 
     public void addForInsertColumnName(String columnName) {
         SQL sql = new SQL();
@@ -54,25 +82,25 @@ public class MySqlContext {
         queryColumnNames.add(sql);
     }
 
-    public void addForQueryColumnNames(String queryForInValColumnName) {
+    public void addQueryWhereColumnNames(String columnName) {
         SQL sql = new SQL();
-        sql.setQueryForInColumnName(queryForInValColumnName);
-        queryForInColumnNames.add(sql);
+        sql.setQueryWhereColumnName(columnName);
+        queryWhereColumnNames.add(sql);
     }
 
-    public void addForQueryValColumnNames(String queryForInValColumnName) {
+    public void addQueryWhereValColumnNames(String columnName) {
         SQL sql = new SQL();
-        sql.setQueryForInValColumnName(queryForInValColumnName);
-        queryForInValColumnNames.add(sql);
+        sql.setQueryWhereValColumnName(columnName);
+        queryWhereValColumnNames.add(sql);
     }
+
 
     @Data
     public static class SQL {
         private String columnName;
         private String tableName;
-        private String whereCondition;
-        private String queryForInValColumnName;
-        private String queryForInColumnName;
+        private String queryWhereValColumnName;
+        private String queryWhereColumnName;
         private String insertColumnName;
     }
 }

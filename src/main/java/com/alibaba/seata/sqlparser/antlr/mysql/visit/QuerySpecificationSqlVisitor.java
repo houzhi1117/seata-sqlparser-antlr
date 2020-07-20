@@ -8,6 +8,8 @@ import java.util.List;
 
 public class QuerySpecificationSqlVisitor extends MySqlParserBaseVisitor<MySqlContext> {
 
+    public MySqlParser.TableSourcesContext tableSourcesContext;
+
     private MySqlContext mySqlContext;
 
     public QuerySpecificationSqlVisitor(MySqlContext mySqlContext) {
@@ -23,21 +25,20 @@ public class QuerySpecificationSqlVisitor extends MySqlParserBaseVisitor<MySqlCo
 
     @Override
     public MySqlContext visitConstantExpressionAtom(MySqlParser.ConstantExpressionAtomContext ctx) {
-        mySqlContext.addForQueryValColumnNames(ctx.getText());
+        mySqlContext.addQueryWhereValColumnNames(ctx.getText());
         return this.mySqlContext;
     }
 
     @Override
     public MySqlContext visitFullColumnNameExpressionAtom(MySqlParser.FullColumnNameExpressionAtomContext ctx) {
-        mySqlContext.addForQueryColumnNames(ctx.getText());
+
+        mySqlContext.addQueryWhereColumnNames(ctx.getText());
         return this.mySqlContext;
     }
 
     @Override
     public MySqlContext visitBetweenPredicate(MySqlParser.BetweenPredicateContext ctx) {
-
-        String text = ctx.getText();
-
+        mySqlContext.setWhereCondition(ctx.getText());
         return this.mySqlContext;
     }
 
@@ -51,23 +52,5 @@ public class QuerySpecificationSqlVisitor extends MySqlParserBaseVisitor<MySqlCo
         }
         return this.mySqlContext;
     }
-
-    @Override
-    public MySqlContext visitLogicalExpression(MySqlParser.LogicalExpressionContext ctx) {
-
-        String text = ctx.getText();
-        System.out.println(text);
-
-        return this.mySqlContext;
-    }
-
-    @Override
-    public MySqlContext visitPredicateExpression(MySqlParser.PredicateExpressionContext ctx) {
-
-        System.out.println(ctx.getText());
-
-        return this.mySqlContext;
-    }
-
 
 }

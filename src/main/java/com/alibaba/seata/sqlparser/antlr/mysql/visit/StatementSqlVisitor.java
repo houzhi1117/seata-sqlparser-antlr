@@ -49,7 +49,7 @@ public class StatementSqlVisitor extends MySqlParserBaseVisitor<MySqlContext> {
     }
 
     @Override
-    public MySqlContext visitLogicalExpression(MySqlParser.LogicalExpressionContext ctx) {
-        return new QuerySpecificationSqlVisitor(this.mySqlContext).visitLogicalExpression(ctx);
+    public MySqlContext visitFromClause(MySqlParser.FromClauseContext ctx) {
+        return new QuerySpecificationSqlVisitor(this.mySqlContext).visitFromClause(ctx);
     }
 }
