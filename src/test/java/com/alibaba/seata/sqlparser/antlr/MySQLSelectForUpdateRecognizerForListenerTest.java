@@ -1,7 +1,7 @@
 package com.alibaba.seata.sqlparser.antlr;
 
 import com.alibaba.seata.sqlparser.antlr.mysql.MySqlContext;
-import com.alibaba.seata.sqlparser.antlr.mysql.listener.StatementSqlListener;
+import com.alibaba.seata.sqlparser.antlr.mysql.listener.QuerySpecificationSqlListener;
 import com.alibaba.seata.sqlparser.antlr.mysql.parser.MySqlLexer;
 import com.alibaba.seata.sqlparser.antlr.mysql.parser.MySqlParser;
 import com.alibaba.seata.sqlparser.antlr.mysql.stream.ANTLRNoCaseStringStream;
@@ -35,7 +35,7 @@ public class MySQLSelectForUpdateRecognizerForListenerTest {
 
         MySqlContext listenerSqlContext = new MySqlContext();
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new StatementSqlListener(listenerSqlContext), rootContext);
+        walker.walk(new QuerySpecificationSqlListener(listenerSqlContext), rootContext);
 
         Assertions.assertEquals("t1", listenerSqlContext.getTableName());
         Assertions.assertEquals("id='id1'", listenerSqlContext.getWhereCondition());
@@ -60,7 +60,7 @@ public class MySQLSelectForUpdateRecognizerForListenerTest {
 
         MySqlContext listenerSqlContext = new MySqlContext();
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new StatementSqlListener(listenerSqlContext), rootContext);
+        walker.walk(new QuerySpecificationSqlListener(listenerSqlContext), rootContext);
 
         Assertions.assertEquals("t1", listenerSqlContext.getTableName());
         Assertions.assertEquals("phone", listenerSqlContext.getQueryColumnNames().get(2).getColumnName());
@@ -86,7 +86,7 @@ public class MySQLSelectForUpdateRecognizerForListenerTest {
 
         MySqlContext mySqlContext = new MySqlContext();
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new StatementSqlListener(mySqlContext), rootContext);
+        walker.walk(new QuerySpecificationSqlListener(mySqlContext), rootContext);
 
 
         Assertions.assertEquals("t2", mySqlContext.getTableName());
@@ -115,7 +115,7 @@ public class MySQLSelectForUpdateRecognizerForListenerTest {
 
         MySqlContext mySqlContext = new MySqlContext();
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new StatementSqlListener(mySqlContext), rootContext);
+        walker.walk(new QuerySpecificationSqlListener(mySqlContext), rootContext);
 
 
         Assertions.assertEquals("t1", mySqlContext.getTableName());
@@ -143,7 +143,7 @@ public class MySQLSelectForUpdateRecognizerForListenerTest {
 
         MySqlContext mySqlContext = new MySqlContext();
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new StatementSqlListener(mySqlContext), rootContext);
+        walker.walk(new QuerySpecificationSqlListener(mySqlContext), rootContext);
 
 
         Assertions.assertEquals("t1", mySqlContext.getTableName());
@@ -172,7 +172,7 @@ public class MySQLSelectForUpdateRecognizerForListenerTest {
 
         MySqlContext mySqlContext = new MySqlContext();
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(new StatementSqlListener(mySqlContext), rootContext);
+        walker.walk(new QuerySpecificationSqlListener(mySqlContext), rootContext);
 
 
         Assertions.assertEquals("t1", mySqlContext.getTableName());

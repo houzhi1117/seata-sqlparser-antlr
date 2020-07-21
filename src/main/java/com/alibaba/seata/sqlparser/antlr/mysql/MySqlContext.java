@@ -65,6 +65,18 @@ public class MySqlContext {
     @Getter
     public List<List<String>> insertForValColumnNames = new ArrayList<>();
 
+    /**
+     * 删除条件列表集合
+     */
+    @Getter
+    public List<SQL> deleteForWhereColumnNames = new ArrayList<>();
+
+    /**
+     * 删除列表对象值集合
+     */
+    @Getter
+    public List<SQL> deleteForWhereValColumnNames = new ArrayList<>();
+
 
     public void addForInsertColumnName(String columnName) {
         SQL sql = new SQL();
@@ -94,6 +106,17 @@ public class MySqlContext {
         queryWhereValColumnNames.add(sql);
     }
 
+    public void addDeleteWhereColumnNames(String columnName) {
+        SQL sql = new SQL();
+        sql.setDeleteWhereColumnName(columnName);
+        deleteForWhereColumnNames.add(sql);
+    }
+
+    public void addDeleteWhereValColumnNames(String columnName) {
+        SQL sql = new SQL();
+        sql.setDeleteWhereValColumnName(columnName);
+        deleteForWhereValColumnNames.add(sql);
+    }
 
     @Data
     public static class SQL {
@@ -102,5 +125,7 @@ public class MySqlContext {
         private String queryWhereValColumnName;
         private String queryWhereColumnName;
         private String insertColumnName;
+        private String deleteWhereValColumnName;
+        private String deleteWhereColumnName;
     }
 }

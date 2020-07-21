@@ -44,8 +44,6 @@ public class QuerySpecificationSqlListener extends MySqlParserBaseListener {
         super.enterConstantExpressionAtom(ctx);
     }
 
-
-
     @Override
     public void enterSelectElements(MySqlParser.SelectElementsContext ctx) {
 
