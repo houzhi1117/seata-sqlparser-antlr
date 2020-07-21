@@ -10,7 +10,7 @@ import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * The type My sql update recognizer test.
@@ -100,5 +100,62 @@ public class MySQLUpdateRecognizerTest {
         Assertions.assertEquals("name1", mySqlContext.getUpdateFoColumnNames().get(0).getUpdateColumn());
         Assertions.assertEquals("name2", mySqlContext.getUpdateFoColumnNames().get(1).getUpdateColumn());
         Assertions.assertEquals("id=?", mySqlContext.getWhereCondition());
+    }
+
+
+    /**
+     * Update recognizer test 3.
+     */
+    @Test
+    public void updateRecognizerTest_3() {
+
+        String sql = "UPDATE t1 SET name1 = 'name1', name2 = 'name2' WHERE id in (1, 2)";
+
+        MySqlLexer lexer = new MySqlLexer(new ANTLRNoCaseStringStream(sql));
+
+        CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+        MySqlParser parser = new MySqlParser(tokenStream);
+
+        MySqlParser.RootContext rootContext = parser.root();
+
+        MySqlContext mySqlContext = new MySqlContext();
+        ParseTreeWalker walker = new ParseTreeWalker();
+        walker.walk(new UpdateSpecificationSqlListener(mySqlContext), rootContext);
+
+        Assertions.assertEquals("1", mySqlContext.getUpdateForWhereValColumnNames().get(0).getUpdateWhereValColumnName());
+        Assertions.assertEquals("t1", mySqlContext.getTableName());
+        Assertions.assertEquals("name1", mySqlContext.getUpdateFoColumnNames().get(0).getUpdateColumn());
+        Assertions.assertEquals("'name1'", mySqlContext.getUpdateForValues().get(0).getUpdateValue());
+        Assertions.assertEquals("name2", mySqlContext.getUpdateFoColumnNames().get(1).getUpdateColumn());
+        Assertions.assertEquals("id in (1,2)", mySqlContext.getWhereCondition());
+    }
+
+
+    /**
+     * Update recognizer test 5.
+     */
+    @Test
+    public void updateRecognizerTest_5() {
+
+        String sql = "UPDATE t1 SET name1 = 'name1', name2 = 'name2' WHERE id between 1 and 2";
+
+        MySqlLexer lexer = new MySqlLexer(new ANTLRNoCaseStringStream(sql));
+
+        CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+
+        MySqlParser parser = new MySqlParser(tokenStream);
+
+        MySqlParser.RootContext rootContext = parser.root();
+
+        MySqlContext mySqlContext = new MySqlContext();
+        ParseTreeWalker walker = new ParseTreeWalker();
+        walker.walk(new UpdateSpecificationSqlListener(mySqlContext), rootContext);
+        Assertions.assertEquals("t1", mySqlContext.getTableName());
+        Assertions.assertEquals("name1", mySqlContext.getUpdateFoColumnNames().get(0).getUpdateColumn());
+        Assertions.assertEquals("'name1'", mySqlContext.getUpdateForValues().get(0).getUpdateValue());
+        Assertions.assertEquals("name2", mySqlContext.getUpdateFoColumnNames().get(1).getUpdateColumn());
+        Assertions.assertEquals("2", mySqlContext.getUpdateForWhereValColumnNames().get(1).getUpdateWhereValColumnName());
+        Assertions.assertEquals("id between 1 and 2", mySqlContext.getWhereCondition());
     }
 }

@@ -2120,6 +2120,10 @@ expressions
     : expression (',' expression)*
     ;
 
+expressionsForUpdate
+    : expressionForUpdate (',' expressionForUpdate)*
+    ;
+
 expressionsWithDefaults
     : expressionOrDefault (',' expressionOrDefault)*
     ;
@@ -2355,7 +2359,7 @@ expressionForUpdate
     ;
 
 predicateForUpdate
-    : predicateForUpdate NOT? IN '(' (selectStatement | expressions) ')'     #inPredicateForUpdate
+    : predicateForUpdate NOT? IN '(' (selectStatement | expressionsForUpdate) ')'     #inPredicateForUpdate
     | predicateForUpdate IS nullNotnull                                      #isNullPredicateForUpdate
     | left=predicateForUpdate comparisonOperator right=predicateForUpdate             #binaryComparasionPredicateForUpdate
     | predicateForUpdate comparisonOperator
