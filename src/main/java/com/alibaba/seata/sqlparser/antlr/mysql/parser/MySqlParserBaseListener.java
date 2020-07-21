@@ -6196,6 +6196,330 @@ public class MySqlParserBaseListener implements MySqlParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLogicalExpressionForUpdate(MySqlParser.LogicalExpressionForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLogicalExpressionForUpdate(MySqlParser.LogicalExpressionForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPredicateExpressionForUpdate(MySqlParser.PredicateExpressionForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPredicateExpressionForUpdate(MySqlParser.PredicateExpressionForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIsExpressionForUpdate(MySqlParser.IsExpressionForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIsExpressionForUpdate(MySqlParser.IsExpressionForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNotExpressionForUpdate(MySqlParser.NotExpressionForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNotExpressionForUpdate(MySqlParser.NotExpressionForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBinaryComparasionPredicateForUpdate(MySqlParser.BinaryComparasionPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBinaryComparasionPredicateForUpdate(MySqlParser.BinaryComparasionPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLikePredicateForUpdate(MySqlParser.LikePredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLikePredicateForUpdate(MySqlParser.LikePredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRegexpPredicateForUpdate(MySqlParser.RegexpPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRegexpPredicateForUpdate(MySqlParser.RegexpPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIsNullPredicateForUpdate(MySqlParser.IsNullPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIsNullPredicateForUpdate(MySqlParser.IsNullPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBetweenPredicateForUpdate(MySqlParser.BetweenPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBetweenPredicateForUpdate(MySqlParser.BetweenPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSoundsLikePredicateForUpdate(MySqlParser.SoundsLikePredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSoundsLikePredicateForUpdate(MySqlParser.SoundsLikePredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInPredicateForUpdate(MySqlParser.InPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInPredicateForUpdate(MySqlParser.InPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSubqueryComparasionPredicateForUpdate(MySqlParser.SubqueryComparasionPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSubqueryComparasionPredicateForUpdate(MySqlParser.SubqueryComparasionPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExpressionAtomPredicateForUpdate(MySqlParser.ExpressionAtomPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExpressionAtomPredicateForUpdate(MySqlParser.ExpressionAtomPredicateForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIntervalExpressionAtomForUpdate(MySqlParser.IntervalExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIntervalExpressionAtomForUpdate(MySqlParser.IntervalExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFullColumnNameExpressionAtomForUpdate(MySqlParser.FullColumnNameExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFullColumnNameExpressionAtomForUpdate(MySqlParser.FullColumnNameExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMysqlVariableExpressionAtomForUpdate(MySqlParser.MysqlVariableExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMysqlVariableExpressionAtomForUpdate(MySqlParser.MysqlVariableExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterUnaryExpressionAtomForUpdate(MySqlParser.UnaryExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitUnaryExpressionAtomForUpdate(MySqlParser.UnaryExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNestedRowExpressionAtomForUpdate(MySqlParser.NestedRowExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNestedRowExpressionAtomForUpdate(MySqlParser.NestedRowExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSubqueryExpessionAtomForUpdate(MySqlParser.SubqueryExpessionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSubqueryExpessionAtomForUpdate(MySqlParser.SubqueryExpessionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBitExpressionAtomForUpdate(MySqlParser.BitExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBitExpressionAtomForUpdate(MySqlParser.BitExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMathExpressionAtomForUpdate(MySqlParser.MathExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMathExpressionAtomForUpdate(MySqlParser.MathExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstantExpressionAtomForUpdate(MySqlParser.ConstantExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstantExpressionAtomForUpdate(MySqlParser.ConstantExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCollateExpressionAtomForUpdate(MySqlParser.CollateExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCollateExpressionAtomForUpdate(MySqlParser.CollateExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBinaryExpressionAtomForUpdate(MySqlParser.BinaryExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBinaryExpressionAtomForUpdate(MySqlParser.BinaryExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNestedExpressionAtomForUpdate(MySqlParser.NestedExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNestedExpressionAtomForUpdate(MySqlParser.NestedExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterExistsExpessionAtomForUpdate(MySqlParser.ExistsExpessionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitExistsExpessionAtomForUpdate(MySqlParser.ExistsExpessionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFunctionCallExpressionAtomForUpdate(MySqlParser.FunctionCallExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFunctionCallExpressionAtomForUpdate(MySqlParser.FunctionCallExpressionAtomForUpdateContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterUnaryExpressionAtom(MySqlParser.UnaryExpressionAtomContext ctx) { }
 	/**
 	 * {@inheritDoc}

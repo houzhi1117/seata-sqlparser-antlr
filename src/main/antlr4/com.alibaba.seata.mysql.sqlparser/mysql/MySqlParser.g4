@@ -908,7 +908,7 @@ handlerCloseStatement
 singleUpdateStatement
     : UPDATE priority=LOW_PRIORITY? IGNORE? tableName (AS? uid)?
       SET updatedElement (',' updatedElement)*
-      (WHERE expression)? orderByClause? limitClause?
+      (WHERE expressionForUpdate)? orderByClause? limitClause?
     ;
 
 multipleUpdateStatement
@@ -2347,6 +2347,43 @@ predicate
     | (LOCAL_ID VAR_ASSIGN)? expressionAtom                         #expressionAtomPredicate
     ;
 
+expressionForUpdate
+    : notOperator=(NOT | '!') expressionForUpdate                            #notExpressionForUpdate
+    | expressionForUpdate logicalOperator expressionForUpdate                         #logicalExpressionForUpdate
+    | expressionForUpdate IS NOT? testValue=(TRUE | FALSE | UNKNOWN)          #isExpressionForUpdate
+    | predicateForUpdate                                                     #predicateExpressionForUpdate
+    ;
+
+predicateForUpdate
+    : predicateForUpdate NOT? IN '(' (selectStatement | expressions) ')'     #inPredicateForUpdate
+    | predicateForUpdate IS nullNotnull                                      #isNullPredicateForUpdate
+    | left=predicateForUpdate comparisonOperator right=predicateForUpdate             #binaryComparasionPredicateForUpdate
+    | predicateForUpdate comparisonOperator
+      quantifier=(ALL | ANY | SOME) '(' selectStatement ')'         #subqueryComparasionPredicateForUpdate
+    | predicateForUpdate NOT? BETWEEN predicateForUpdate AND predicateForUpdate                #betweenPredicateForUpdate
+    | predicateForUpdate SOUNDS LIKE predicateForUpdate                               #soundsLikePredicateForUpdate
+    | predicateForUpdate NOT? LIKE predicateForUpdate (ESCAPE STRING_LITERAL)?        #likePredicateForUpdate
+    | predicateForUpdate NOT? regex=(REGEXP | RLIKE) predicate               #regexpPredicateForUpdate
+    | (LOCAL_ID VAR_ASSIGN)? expressionAtomForUpdate                        #expressionAtomPredicateForUpdate
+    ;
+
+// Add in ASTVisitor nullNotnull in constant
+expressionAtomForUpdate
+    : constant                                                      #constantExpressionAtomForUpdate
+    | fullColumnName                                                #fullColumnNameExpressionAtomForUpdate
+    | functionCall                                                  #functionCallExpressionAtomForUpdate
+    | expressionAtomForUpdate COLLATE collationName                          #collateExpressionAtomForUpdate
+    | mysqlVariable                                                 #mysqlVariableExpressionAtomForUpdate
+    | unaryOperator expressionAtomForUpdate                                  #unaryExpressionAtomForUpdate
+    | BINARY expressionAtomForUpdate                                       #binaryExpressionAtomForUpdate
+    | '(' expressionForUpdate (',' expressionForUpdate)* ')'                          #nestedExpressionAtomForUpdate
+    | ROW '(' expressionForUpdate (',' expressionForUpdate)+ ')'                      #nestedRowExpressionAtomForUpdate
+    | EXISTS '(' selectStatement ')'                                #existsExpessionAtomForUpdate
+    | '(' selectStatement ')'                                       #subqueryExpessionAtomForUpdate
+    | INTERVAL expressionForUpdate intervalType                              #intervalExpressionAtomForUpdate
+    | left=expressionAtomForUpdate bitOperator right=expressionAtomForUpdate          #bitExpressionAtomForUpdate
+    | left=expressionAtomForUpdate mathOperator right=expressionAtomForUpdate        #mathExpressionAtomForUpdate
+    ;
 
 // Add in ASTVisitor nullNotnull in constant
 expressionAtom

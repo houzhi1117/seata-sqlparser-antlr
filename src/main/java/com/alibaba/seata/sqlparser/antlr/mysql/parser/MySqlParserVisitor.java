@@ -3355,6 +3355,195 @@ public interface MySqlParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRegexpPredicate(MySqlParser.RegexpPredicateContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code logicalExpressionForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLogicalExpressionForUpdate(MySqlParser.LogicalExpressionForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code predicateExpressionForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPredicateExpressionForUpdate(MySqlParser.PredicateExpressionForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code isExpressionForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIsExpressionForUpdate(MySqlParser.IsExpressionForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code notExpressionForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNotExpressionForUpdate(MySqlParser.NotExpressionForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code binaryComparasionPredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBinaryComparasionPredicateForUpdate(MySqlParser.BinaryComparasionPredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code likePredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLikePredicateForUpdate(MySqlParser.LikePredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code regexpPredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRegexpPredicateForUpdate(MySqlParser.RegexpPredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code isNullPredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIsNullPredicateForUpdate(MySqlParser.IsNullPredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code betweenPredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBetweenPredicateForUpdate(MySqlParser.BetweenPredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code soundsLikePredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSoundsLikePredicateForUpdate(MySqlParser.SoundsLikePredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code inPredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInPredicateForUpdate(MySqlParser.InPredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code subqueryComparasionPredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubqueryComparasionPredicateForUpdate(MySqlParser.SubqueryComparasionPredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code expressionAtomPredicateForUpdate}
+	 * labeled alternative in {@link MySqlParser#predicateForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpressionAtomPredicateForUpdate(MySqlParser.ExpressionAtomPredicateForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code intervalExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIntervalExpressionAtomForUpdate(MySqlParser.IntervalExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code fullColumnNameExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFullColumnNameExpressionAtomForUpdate(MySqlParser.FullColumnNameExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mysqlVariableExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMysqlVariableExpressionAtomForUpdate(MySqlParser.MysqlVariableExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code unaryExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnaryExpressionAtomForUpdate(MySqlParser.UnaryExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code nestedRowExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNestedRowExpressionAtomForUpdate(MySqlParser.NestedRowExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code subqueryExpessionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSubqueryExpessionAtomForUpdate(MySqlParser.SubqueryExpessionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code bitExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBitExpressionAtomForUpdate(MySqlParser.BitExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code mathExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMathExpressionAtomForUpdate(MySqlParser.MathExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code constantExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstantExpressionAtomForUpdate(MySqlParser.ConstantExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code collateExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCollateExpressionAtomForUpdate(MySqlParser.CollateExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code binaryExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBinaryExpressionAtomForUpdate(MySqlParser.BinaryExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code nestedExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNestedExpressionAtomForUpdate(MySqlParser.NestedExpressionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code existsExpessionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExistsExpessionAtomForUpdate(MySqlParser.ExistsExpessionAtomForUpdateContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code functionCallExpressionAtomForUpdate}
+	 * labeled alternative in {@link MySqlParser#expressionAtomForUpdate}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunctionCallExpressionAtomForUpdate(MySqlParser.FunctionCallExpressionAtomForUpdateContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code unaryExpressionAtom}
 	 * labeled alternative in {@link MySqlParser#expressionAtom}.
 	 * @param ctx the parse tree

@@ -174,7 +174,6 @@ public class MySQLSelectForUpdateRecognizerForListenerTest {
         ParseTreeWalker walker = new ParseTreeWalker();
         walker.walk(new QuerySpecificationSqlListener(mySqlContext), rootContext);
 
-
         Assertions.assertEquals("t1", mySqlContext.getTableName());
         Assertions.assertEquals("name1", mySqlContext.getQueryColumnNames().get(0).getColumnName());
         Assertions.assertEquals("id", mySqlContext.getQueryWhereColumnNames().get(1).getQueryWhereColumnName());

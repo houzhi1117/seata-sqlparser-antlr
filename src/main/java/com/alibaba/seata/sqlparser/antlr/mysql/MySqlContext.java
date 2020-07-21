@@ -77,6 +77,30 @@ public class MySqlContext {
     @Getter
     public List<SQL> deleteForWhereValColumnNames = new ArrayList<>();
 
+    /**
+     * 更新条件列表集合
+     */
+    @Getter
+    public List<SQL> updateForWhereColumnNames = new ArrayList<>();
+
+    /**
+     * 更新列表对象值集合
+     */
+    @Getter
+    public List<SQL> updateForWhereValColumnNames = new ArrayList<>();
+
+    /**
+     * 更新列表对象值集合
+     */
+    @Getter
+    public List<SQL> updateFoColumnNames = new ArrayList<>();
+
+
+    /**
+     * 更新列表对象值集合
+     */
+    @Getter
+    public List<SQL> updateForValues = new ArrayList<>();
 
     public void addForInsertColumnName(String columnName) {
         SQL sql = new SQL();
@@ -118,6 +142,32 @@ public class MySqlContext {
         deleteForWhereValColumnNames.add(sql);
     }
 
+
+    public void addUpdateWhereValColumnNames(String columnName) {
+        SQL sql = new SQL();
+        sql.setUpdateWhereValColumnName(columnName);
+        updateForWhereValColumnNames.add(sql);
+    }
+
+
+    public void addUpdateWhereColumnNames(String columnName) {
+        SQL sql = new SQL();
+        sql.setUpdateWhereColumnName(columnName);
+        updateForWhereColumnNames.add(sql);
+    }
+
+    public void addUpdateColumnNames(String columnName) {
+        SQL sql = new SQL();
+        sql.setUpdateColumn(columnName);
+        updateFoColumnNames.add(sql);
+    }
+
+    public void addUpdateValues(String columnName) {
+        SQL sql = new SQL();
+        sql.setUpdateValue(columnName);
+        updateForValues.add(sql);
+    }
+
     @Data
     public static class SQL {
         private String columnName;
@@ -127,5 +177,10 @@ public class MySqlContext {
         private String insertColumnName;
         private String deleteWhereValColumnName;
         private String deleteWhereColumnName;
+        private String updateWhereValColumnName;
+        private String updateWhereColumnName;
+        private String updateColumn;
+        private String updateValue;
+
     }
 }
